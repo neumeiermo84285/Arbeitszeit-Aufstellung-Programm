@@ -30,10 +30,12 @@ def generate_work_schedule(name, s_date, e_date, s_time, e_time, selected_weekda
             if current_date.weekday() in selected_weekdays:
                 start_time = current_date.replace(hour=int(s_time.split(":")[0]), minute=int(s_time.split(":")[1]))
                 end_time = current_date.replace(hour=int(e_time.split(":")[0]), minute=int(e_time.split(":")[1]))
-                work_hours = (end_time - start_time).seconds / 3600
+                time_difference = end_time - start_time
+                hours, remainder = divmod(time_difference.seconds, 3600)
+                minutes = remainder // 60
 
                 # Schreibe die Zeile in die Datei
-                file.write(f"{current_date.strftime('%d.%m.%Y')};{start_time.strftime('%H:%M')};{end_time.strftime('%H:%M')};{work_hours:.1f}\n")
+                file.write(f"{current_date.strftime('%d.%m.%Y')};{start_time.strftime('%H:%M')};{end_time.strftime('%H:%M')};{hours:02d}:{minutes:02d}\n")
 
             # Gehe zum nächsten Tag
             current_date += timedelta(days=1)
