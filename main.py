@@ -12,7 +12,10 @@ def generate_work_schedule(name, s_date, e_date, s_time, e_time, selected_weekda
 
     # Erzeuge den vollständigen Dateipfad
     file_name = f"Arbeitszeittabelle_{name}_{start_date.year}.csv"
-    full_file_path = f"{file_path}/{file_name}"
+    if file_path == '':
+        full_file_path = f"./{file_name}"
+    else:
+        full_file_path = f"{file_path}/{file_name}"
 
     # Öffne eine Textdatei zum Schreiben
     with open(full_file_path, "w") as file:
