@@ -1,12 +1,13 @@
 from datetime import datetime, timedelta
 
+
 def generate_work_schedule(name, s_date, e_date, s_time, e_time, selected_weekdays, file_path):
     # Startdatum und Enddatum für das Jahr 2023
     start_date = datetime(int(s_date.split(".")[2]), int(s_date.split(".")[1]), int(s_date.split(".")[0]))
-    end_date = datetime(int(e_date.split(".")[2]), int(e_date.split(".")[1]), int(e_date.split(".")[0])) 
+    end_date = datetime(int(e_date.split(".")[2]), int(e_date.split(".")[1]), int(e_date.split(".")[0]))
 
     day_amp = {"0": "Montag", "1": "Dienstag", "2": "Mittwoch", "3": "Donnerstag", "4": "Freitag", "5": "Samstag", "6": "Sonntag"}
-    arbeitsage = "" 
+    arbeitsage = ""
     for day in selected_weekdays:
         arbeitsage += day_amp[str(day)] + ", "
 
@@ -40,6 +41,7 @@ def generate_work_schedule(name, s_date, e_date, s_time, e_time, selected_weekda
             # Gehe zum nächsten Tag
             current_date += timedelta(days=1)
 
+
 if __name__ == "__main__":
     # Frage nach dem Namen
     name = input("Bitte geben Sie Ihren Namen ein: ")
@@ -49,9 +51,9 @@ if __name__ == "__main__":
     # Frage nach end Datum
     end_date = input("Bitte geben Sie das Enddatum ein (Format: DD.MM.JJJJ --> z.B.: 31.12.2023): ")
 
-    #Frage nach startzeit Arbeitszeit
+    # Frage nach startzeit Arbeitszeit
     start_time = input("Bitte geben Sie die Arbeits-Startzeit ein (Format: HH:MM --> z.B.: 10:00): ")
-    end_time =  input("Bitte geben Sie die Arbeits-Endzeit ein (Format: HH:MM --> z.B.: 11:30): ")
+    end_time = input("Bitte geben Sie die Arbeits-Endzeit ein (Format: HH:MM --> z.B.: 11:30): ")
 
     # Frage nach den ausgewählten Wochentagen
     weekdays_input = input("Bitte geben Sie die ausgewählten Wochentage ein (Komma getrennt, 0 für Montag, 1 für Dienstag, usw.): ")
