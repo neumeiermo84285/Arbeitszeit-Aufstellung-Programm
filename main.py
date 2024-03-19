@@ -21,7 +21,7 @@ def generate_work_schedule(name, s_date, e_date, s_time, e_time, selected_weekda
     with open(full_file_path, "w") as file:
         # Schreibe die Kopfzeile
         file.write(f"Name: {name}\n\n")
-        file.write(f"Arbeitstage {arbeitsage}\n\n")
+        file.write(f"Arbeitstage:, {arbeitsage}\n\n")
         file.write("Datum;Uhrzeit – Beginn;Uhrzeit – Ende;Arbeitszeit in Stunden\n")
 
         # Schreibe die Arbeitszeiten für die ausgewählten Wochentage im angegebenen Zeitraum
